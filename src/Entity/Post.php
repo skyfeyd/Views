@@ -33,7 +33,7 @@ class Post
     #[ORM\Column(type: 'integer')]
     private $Likes;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $Share;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'posts')]
