@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -172,6 +173,20 @@ class Post
     public function removeLiked(User $liked): self
     {
         $this->liked->removeElement($liked);
+
+        return $this;
+    }
+
+    private $videoFilename;
+
+    public function getVideoFilename()
+    {
+        return $this->videoFilename;
+    }
+
+    public function setVideoFilename($videoFilename)
+    {
+        $this->videoFilename = $videoFilename;
 
         return $this;
     }
